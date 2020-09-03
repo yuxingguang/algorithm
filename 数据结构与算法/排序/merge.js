@@ -1,3 +1,3 @@
-const {nums, swpa} = require('./data.js');
+const {nums, swap} = require('./data.js');
 
 console.log(nums.slice())
