@@ -1,4 +1,4 @@
-// 剑指 Offer 42. 连续子数组的最大和
+// LeetCode 53. 连续子数组的最大和
 function maxSubArray(nums) {
     if(nums.length <= 1){
         return Math.max(nums);
