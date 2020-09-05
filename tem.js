@@ -1,15 +1,27 @@
-var uniquePaths = function(m, n) {
-    if(m==1 || n==1){
-        return 1;
-    }
-    const dp =new Array(m).fill(1).map(item => new Array(n).fill(1));
-    for(let i=1; i<m; i++){
-        for(let j=1; j<n; j++){
-            dp[i][j] = dp[i-1][j] + dp[i][j-1];
+var combinationSum2 = function(candidates, target) {
+    let answer=[];
+    const traceback = (solution, answer, target, start)=>{
+        if(target<0){
+            return ;
+        }
+        if(target ==0){
+            const sortedSolution = [...solution].sort((a,b) => a-b);
+            if(answer.some(savedSolution => {
+                return savedSolution.every((value, index)=>value === sortedSolution[index])
+            })){
+                return ;
+            }
+            answer.push(sortedSolution);
+            return;
+        }
+        for(let i=start; i<candidates.length;i++){
+            solution.push(candidates[i]);
+            traceback(solution, answer, target-candidates[i], i+1);
+            solution.pop()
         }
     }
-    console.log(dp)
-    return dp[m-1][n-1];
+    traceback([], answer, target, 0);
+    return answer;
 };
 
-uniquePaths(2,2)
+combinationSum2( [2,5,2,1,2], 5)
