@@ -1,4 +1,4 @@
-const nums = [2,1,7,9,5,8,6,8,9,1,0,2,7,5,12,5,6,12,4,56,98,79];
+const nums = [0,3,1,5,9,4,6,7,8,2];
 
 function swap(nums, i , j){
     const item = nums[i];
